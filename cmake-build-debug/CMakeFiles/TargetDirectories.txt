@@ -1,0 +1,3 @@
+C:/Users/minau/CLionProjects/TicTacToe_sfml/cmake-build-debug/CMakeFiles/sfml_project.dir
+C:/Users/minau/CLionProjects/TicTacToe_sfml/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/minau/CLionProjects/TicTacToe_sfml/cmake-build-debug/CMakeFiles/rebuild_cache.dir
