@@ -1,10 +1,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 1024
+
 int main() {
-    sf::RenderWindow window(sf::VideoMode(500, 500, 32), "Test");
-    sf::CircleShape circle;
-    circle.setFillColor(sf::Color::Green);
-    circle.setRadius(250.f);
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 60), "TICTACTOE_SFML");
 
     while(window.isOpen())
     {
@@ -15,7 +16,6 @@ int main() {
             }
         }
         window.clear(sf::Color::Black);
-        window.draw(circle);
         window.display();
     }
     return 0;
