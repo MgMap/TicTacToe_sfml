@@ -1,0 +1,15 @@
+//
+// Created by minau on 2/29/2024.
+//
+
+#ifndef SFML_PROJECT_GAMESTATESENUM_H
+#define SFML_PROJECT_GAMESTATESENUM_H
+
+enum GameState
+{
+    SPLASH_STATE,
+    MENU_STATE,
+    PLAYING_STATE,
+    REPLAY
+};
+#endif //SFML_PROJECT_GAMESTATESENUM_H
