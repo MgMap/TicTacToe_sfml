@@ -1,22 +1,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "DEFINITIONS.h"
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 1024
-
+#include "Game.h"
 int main() {
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 60), "TICTACTOE_SFML");
+    Game(SCREEN_WIDTH,SCREEN_HEIGHT,"Testing");
 
-    while(window.isOpen())
-    {
-        sf::Event event;
-        while(window.pollEvent(event)){
-            if (event.type == sf::Event::Closed){
-                window.close();
-            }
-        }
-        window.clear(sf::Color::Black);
-        window.display();
-    }
     return 0;
 }

@@ -17,6 +17,7 @@ private:
     static std::string getPath(textureEnum texture);
 public:
     static sf::Texture& getTexture(textureEnum texture);
+    static void setTexture(sf::Sprite &sprite, textureEnum textenum);
 };
 
 

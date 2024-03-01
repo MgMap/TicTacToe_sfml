@@ -6,6 +6,7 @@
 #define SFML_PROJECT_FONTSENUM_H
 enum fontEnum
 {
-
+    ARIAL,
+    MARKER,
 };
 #endif //SFML_PROJECT_FONTSENUM_H

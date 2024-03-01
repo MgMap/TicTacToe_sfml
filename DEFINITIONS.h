@@ -1,0 +1,12 @@
+//
+// Created by minau on 2/29/2024.
+//
+
+#ifndef SFML_PROJECT_DEFINITIONS_H
+#define SFML_PROJECT_DEFINITIONS_H
+
+#define SCREEN_WIDTH 768
+#define SCREEN_HEIGHT 1136
+#define SPLASH_TIME 3
+
+#endif //SFML_PROJECT_DEFINITIONS_H
