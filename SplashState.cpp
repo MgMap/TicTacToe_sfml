@@ -5,6 +5,7 @@
 #include "SplashState.h"
 #include "Textures.h"
 #include "DEFINITIONS.h"
+#include "MainMenuState.h"
 
 SplashState::SplashState(GameDataRef data) :_data(data)
 {
@@ -33,7 +34,7 @@ void SplashState::Update(float dt)
 {
     if(this->_clock.getElapsedTime().asSeconds() > SPLASH_TIME)
     {
-        std::cout << "Go to Main menu";
+        this->_data->machine.AddState(new MainMenuState(_data),true);
     }
 }
 

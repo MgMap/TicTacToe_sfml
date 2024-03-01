@@ -8,15 +8,23 @@
 #include "State.h"
 #include "Game.h"
 #include <SFML/Graphics.hpp>
+#include "DEFINITIONS.h"
+#include "Textures.h"
+#include <iostream>
 
 class GameState :public State
 {
 private:
-    void initGird();
+    GameDataRef  _data;
+    sf::Sprite _background;
+    sf::Sprite _pauseButton;
+    int turn;
+    int gameState;
 
 public:
     GameState(GameDataRef data);
-    void init();
+    void Init();
+    void InputHandler();
     void Update(float dt);
     void Draw(float dt);
 };
