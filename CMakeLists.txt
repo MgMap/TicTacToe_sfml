@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static")
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp State.cpp State.h TextureEnum.h Textures.cpp Textures.h MouseEvent.cpp MouseEvent.h GameStatesEnum.h)
+set(SOURCE_FILES main.cpp State.cpp State.h TextureEnum.h Textures.cpp Textures.h MouseEvent.cpp MouseEvent.h GameStatesEnum.h StateMachine.cpp StateMachine.h)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})
