@@ -4,6 +4,13 @@
 
 #include "Game.h"
 
+
+Game::Game(int width, int height, std::string title)
+{
+    _data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+    this->run();
+}
+
 void Game::run()
 {
     float newTime, frameTime, Interpolation;
@@ -33,10 +40,4 @@ void Game::run()
         Interpolation = accumulator/dt;
         _data->machine.GetActiveState()->Draw(dt);
     }
-}
-
-Game::Game(int width, int height, std::string title)
-{
-    _data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
-    this->run();
 }

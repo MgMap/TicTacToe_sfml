@@ -13,7 +13,10 @@ std::string Textures::getPath(textureEnum texture)
 {
     switch(texture)
     {
-
+        case SPLASH: return 0;
+        case BACKGROUND: return 0;
+        case CIRCLE: return 0;
+        case CROSS: return 0;
     }
 }
 
