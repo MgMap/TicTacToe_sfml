@@ -11,6 +11,7 @@
 #include "DEFINITIONS.h"
 #include "Textures.h"
 #include <iostream>
+#include "PauseState.h"
 
 class GameState :public State
 {
@@ -20,7 +21,7 @@ private:
     sf::Sprite _pauseButton;
     int turn;
     int gameState;
-
+    void InitGrid();
 public:
     GameState(GameDataRef data);
     void Init();

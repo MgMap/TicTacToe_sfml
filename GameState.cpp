@@ -32,7 +32,7 @@ void GameState::InputHandler()
         }
         if(MouseEvents::isClicked(_pauseButton, _data->window))
         {
-            std::cout << "Pause The Game";
+            _data->machine.AddState(new PauseState(_data),false);
         }
     }
 }
