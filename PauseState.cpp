@@ -31,7 +31,7 @@ void PauseState::InputHandler()
     if(MouseEvents::isClicked(_resumeButton,_data->window))
     {
         //going back to the playing state by poping the pause state
-        _data->machine.RemoveState();
+        this->_data->machine.RemoveState();
     }
     if(MouseEvents::isClicked(_homeButton,_data->window))
     {

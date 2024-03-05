@@ -7,7 +7,7 @@
 
 #define SCREEN_WIDTH 768
 #define SCREEN_HEIGHT 1136
-#define SPLASH_TIME 3
+#define SPLASH_TIME 0.5
 
 #define X_PIECE 8
 #define O_PIECE 0
@@ -22,5 +22,6 @@
 #define STATE_PLACING_PIECE 94
 #define STATE_AI_PLAYING 93
 #define STATE_DRAW 92
+
 
 #endif //SFML_PROJECT_DEFINITIONS_H

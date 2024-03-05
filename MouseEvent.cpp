@@ -12,6 +12,8 @@ bool MouseEvents::isHover(const T &Obj, const sf::RenderWindow &window) {
     return Obj.getGlobalBounds().contains(mpos);
 }
 
+
+
 template<class T>
 bool MouseEvents::isClicked(const T &Obj, const sf::RenderWindow &window) {
     return isHover(Obj, window) && sf::Mouse::isButtonPressed(sf::Mouse::Left);

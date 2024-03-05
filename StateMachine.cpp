@@ -17,7 +17,7 @@ StateMachine::~StateMachine()
 void StateMachine::AddState(State *newState, bool isReplacing)
 {
     _isAdding = true;
-    _isReplacing = true;
+    _isReplacing = isReplacing;
 
     _newState = newState;
 }
