@@ -163,7 +163,7 @@ void GameState::CheckPlayerHasWon(int player)
     // check if the game is over
     if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
     {
-        // show game over
+        _clock.restart();
     }
 
     std::cout << gameState << std::endl;
@@ -202,7 +202,13 @@ void GameState::Check3PiecesForMatch(int x1, int y1, int x2, int y2, int x3, int
 
 void GameState::Update(float dt)
 {
-
+    if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
+    {
+        if(this->_clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAMEOVER)
+        {
+            this->_data->machine.AddState(new GameOverState(_data), true);
+        }
+    }
 }
 
 void GameState::Draw(float dt)

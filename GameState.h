@@ -38,6 +38,8 @@ private:
 
     int turn;
     int gameState;
+
+    sf::Clock _clock;
 public:
     GameState(GameDataRef data);
     void Init();
