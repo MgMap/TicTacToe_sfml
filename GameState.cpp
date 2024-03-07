@@ -89,7 +89,7 @@ void GameState::CheckAndPlacePiece()
     {
         column = 2;
     }
-    else if (gridLocalTouchPos.x > gridSize.width)
+    else if (gridLocalTouchPos.x < gridSize.width)
     {
         column = 3;
     }
@@ -102,9 +102,25 @@ void GameState::CheckAndPlacePiece()
     {
         row = 2;
     }
-    else if (gridLocalTouchPos.y > gridSize.height)
+    else if (gridLocalTouchPos.y < gridSize.height)
     {
         row = 3;
+    }
+    if (gridArray[column-1][row-1] == EMPTY_PIECE)
+    {
+        gridArray[column-1][row-1] = turn;
+        if(PLAYER_PIECE == turn)
+        {
+            _gridPieces[column-1][row-1].setTexture(Textures::getTexture(CROSS));
+            turn = AI_PIECE;
+
+        }
+        else  if(AI_PIECE == turn)
+        {
+            _gridPieces[column-1][row-1].setTexture(Textures::getTexture(CIRCLE));
+            turn = PLAYER_PIECE;
+        }
+        _gridPieces[column-1][row-1].setColor(sf::Color(255,255,255,255));
     }
 
 
