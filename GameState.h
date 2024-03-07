@@ -14,6 +14,10 @@
 #include "PauseState.h"
 #include "GameOverState.h"
 
+enum game
+{
+    winning_piece
+};
 class GameState :public State
 {
 private:
@@ -29,6 +33,8 @@ private:
     int gridArray[3][3];
 
     void CheckAndPlacePiece();
+    void CheckPlayerHasWon( int turn);
+    void Check3PiecesForMatch(int x1, int y1,int x2, int y2,int x3, int y3, int pieceToCheck);
 
     int turn;
     int gameState;

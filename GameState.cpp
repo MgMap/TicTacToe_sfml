@@ -21,6 +21,7 @@ void GameState::Init()
     Textures::setTexture(_pauseButton,PAUSE_BUTTON);
     Textures::setTexture(_background,BACKGROUND);
 
+
     _pauseButton.setPosition(_data->window.getSize().x - _pauseButton.getLocalBounds().width,_pauseButton.getPosition().y);
     _grid.setPosition(SCREEN_WIDTH/2 - (_grid.getGlobalBounds().width/2), SCREEN_HEIGHT/2 - (_grid.getGlobalBounds().height/2));
 
@@ -67,7 +68,10 @@ void GameState::InputHandler()
         }
         else if(MouseEvents::isClicked(_grid, _data->window))
         {
-            CheckAndPlacePiece();
+            if (STATE_PLAYING == gameState)
+            {
+                this->CheckAndPlacePiece();
+            }
         }
     }
 }
@@ -112,19 +116,89 @@ void GameState::CheckAndPlacePiece()
         if(PLAYER_PIECE == turn)
         {
             _gridPieces[column-1][row-1].setTexture(Textures::getTexture(CROSS));
+            this->CheckPlayerHasWon(turn);
             turn = AI_PIECE;
 
         }
         else  if(AI_PIECE == turn)
         {
             _gridPieces[column-1][row-1].setTexture(Textures::getTexture(CIRCLE));
+            this->CheckPlayerHasWon(turn);
             turn = PLAYER_PIECE;
         }
         _gridPieces[column-1][row-1].setColor(sf::Color(255,255,255,255));
     }
-
-
 }
+
+void GameState::CheckPlayerHasWon(int player)
+{
+    Check3PiecesForMatch(0, 0, 1, 0, 2, 0, player);
+    Check3PiecesForMatch(0, 1, 1, 1, 2, 1, player);
+    Check3PiecesForMatch(0, 2, 1, 2, 2, 2, player);
+    Check3PiecesForMatch(0, 0, 0, 1, 0, 2, player);
+    Check3PiecesForMatch(1, 0, 1, 1, 1, 2, player);
+    Check3PiecesForMatch(2, 0, 2, 1, 2, 2, player);
+    Check3PiecesForMatch(0, 0, 1, 1, 2, 2, player);
+    Check3PiecesForMatch(0, 2, 1, 1, 2, 0, player);
+
+    int emptyNum = 9;
+
+    for (int x = 0; x < 3; x++)
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            if (EMPTY_PIECE != gridArray[x][y])
+            {
+                emptyNum--;
+            }
+        }
+    }
+
+    // check if the game is a draw
+    if (0 == emptyNum && (STATE_WON != gameState) && (STATE_LOSE != gameState))
+    {
+        gameState = STATE_DRAW;
+    }
+
+    // check if the game is over
+    if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
+    {
+        // show game over
+    }
+
+    std::cout << gameState << std::endl;
+}
+
+void GameState::Check3PiecesForMatch(int x1, int y1, int x2, int y2, int x3, int y3, int pieceToCheck)
+{
+    if (pieceToCheck == gridArray[x1][y1] && pieceToCheck == gridArray[x2][y2] && pieceToCheck == gridArray[x3][y3])
+    {
+        std::string winningPieceStr;
+
+        if (O_PIECE == pieceToCheck)
+        {
+            _gridPieces[x1][y1].setTexture(Textures::getTexture(CIRCLE_WIN));
+            _gridPieces[x2][y2].setTexture(Textures::getTexture(CIRCLE_WIN));
+            _gridPieces[x3][y3].setTexture(Textures::getTexture(CIRCLE_WIN));
+        }
+        else
+        {
+            _gridPieces[x1][y1].setTexture(Textures::getTexture(CROSS_WIN));
+            _gridPieces[x2][y2].setTexture(Textures::getTexture(CROSS_WIN));
+            _gridPieces[x3][y3].setTexture(Textures::getTexture(CROSS_WIN));
+        }
+
+        if (PLAYER_PIECE == pieceToCheck)
+        {
+            gameState = STATE_WON;
+        }
+        else
+        {
+            gameState = STATE_LOSE;
+        }
+    }
+}
+
 
 void GameState::Update(float dt)
 {
