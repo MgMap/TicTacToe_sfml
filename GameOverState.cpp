@@ -45,7 +45,7 @@ void GameOverState::Update(float dt)
 
 void GameOverState::Draw(float dt)
 {
-    _data->window.clear();
+    _data->window.clear(sf::Color::Red);
     _data->window.draw(_retryButton);
     _data->window.draw(_homeButton);
     _data->window.display();

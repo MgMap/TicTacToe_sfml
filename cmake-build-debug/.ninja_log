@@ -46,3 +46,12 @@
 22	735	7314856267196538	CMakeFiles/sfml_project.dir/PauseState.cpp.obj	5980a6bc1fe7b3a3
 4	614	7314856464934736	CMakeFiles/sfml_project.dir/GameState.cpp.obj	e99ffc964436178
 615	1360	7314856472220828	sfml_project.exe	64cb77844cd62710
+5	675	7314864236169607	CMakeFiles/sfml_project.dir/main.cpp.obj	8aa3a2bf120036b1
+15	693	7314864236334976	CMakeFiles/sfml_project.dir/SplashState.cpp.obj	736b5c221ed75fb9
+25	707	7314864236506415	CMakeFiles/sfml_project.dir/PauseState.cpp.obj	5980a6bc1fe7b3a3
+21	744	7314864236878893	CMakeFiles/sfml_project.dir/GameState.cpp.obj	e99ffc964436178
+30	759	7314864237053059	CMakeFiles/sfml_project.dir/MainMenuState.cpp.obj	49c418c170508356
+35	760	7314864237053059	CMakeFiles/sfml_project.dir/GameOverState.cpp.obj	a3e5df278a99ba3f
+760	1377	7314864243172088	sfml_project.exe	64cb77844cd62710
+4	595	7314865465452015	CMakeFiles/sfml_project.dir/GameOverState.cpp.obj	a3e5df278a99ba3f
+596	1238	7314865471770412	sfml_project.exe	64cb77844cd62710
